@@ -1,7 +1,12 @@
-import React from 'react';
-import Board from'./Board';
+import React, { useState } from 'react';
+import Board from './Board';
 
-const Game=()=>{
+const Game = () => {
+
+  //добавить в память каждый ход
+  const [history, setHistory] = useState(Array(9).fill(null));
+  const [square, setSquare] = useState(Array(9).fill(null));
+
   return (
     <div className="game">
       <div className="game-board">
@@ -13,6 +18,6 @@ const Game=()=>{
       </div>
     </div>
   );
-}
+};
 
-export default Game
+export default Game;
