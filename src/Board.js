@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Square from './Square';
 
 const Board = () => {
+  const [square, setSquare] = useState(Array(9).fill(null));
+
   const renderSquare = (i) => {
-    return <Square value={i} />;
+    return <Square value={square[i]} onClick={() => handleClick(i)} />;
+  };
+  const handleClick = (i) => {
+    const squares = square.slice();
+    squares[i] = 'X';
+    setSquare(squares);
   };
 
   const status = 'Next player: X';
@@ -13,7 +20,7 @@ const Board = () => {
       <div className="status">{status}</div>
       <div className="board-row">
         {renderSquare(0)}
-        {renderSquare(1)}fffff
+        {renderSquare(1)}
         {renderSquare(2)}
       </div>
       <div className="board-row">
