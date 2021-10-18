@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Square from './Square';
 
 const Board = () => {
+  const [square, setSquare] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
 
   const renderSquare = (i) => {
